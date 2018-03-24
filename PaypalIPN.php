@@ -1,6 +1,6 @@
 <?php
 
-//Largely borrowed from https://github.com/paypal/ipn-code-samples/
+//Largely borrowed from Paypal's samples at https://github.com/paypal/ipn-code-samples/
 
 class PaypalIPN
 {
