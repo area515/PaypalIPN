@@ -1,10 +1,10 @@
 <?php
 
 //Uncomment these to enable error output to the response.
-error_reporting(E_ALL);
-ini_set('display_errors', 'On');
+// error_reporting(E_ALL);
+// ini_set('display_errors', 'On');
 //Uncomment this line (and comment the two above) to disable error output.
-// error_reporting(0);
+error_reporting(0);
 
 require ('PaypalIPN.php');
 require ('GoogleDriveSpreadsheets.php');
@@ -14,8 +14,8 @@ $googleDrive = new GoogleSpreadsheet();
 
 // Uncomment to test in the Paypal sandbox.
 //$ipn->useSandbox();
-// $verified = $ipn -> verifyIPN();
-$verified = true;
+$verified = $ipn -> verifyIPN();
+// $verified = true;
 if ($verified) {
     /*
      * Process IPN
