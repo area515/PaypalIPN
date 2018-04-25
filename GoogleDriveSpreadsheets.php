@@ -114,7 +114,8 @@ class GoogleSpreadsheet {
     function addRowToAuditFile($emailAddress, $oldExpiration, $newExpiration, $amount, $accessToken) {
         
         global $auditFileId;
-		$now = new DateTime() -> format("m/d/Y");
+	$now = new DateTime();
+	$now = $now -> format("m/d/Y");
         $url = "https://spreadsheets.google.com/feeds/list/$auditFileId/od6/private/full";
         $headers = ["Authorization" => "Bearer $accessToken", 'Content-Type' => 'application/atom+xml'];
         $postBody = "<entry xmlns=\"http://www.w3.org/2005/Atom\" xmlns:gsx=\"http://schemas.google.com/spreadsheets/2006/extended\"><gsx:paypalemail>$emailAddress</gsx:paypalemail><gsx:amountpaid>$amount</gsx:amountpaid><gsx:oldexpirationdate>$oldExpiration</gsx:oldexpirationdate><gsx:newexpirationdate>$newExpiration</gsx:newexpirationdate><gsx:processeddate>$now</gsx:processeddate></entry>";
